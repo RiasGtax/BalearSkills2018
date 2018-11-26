@@ -11,14 +11,20 @@ a:hover {
     color: black !important;
 }
 
+a:active {
+    color: black !important;
+}
+
 .custom-navbar {
+    top: 0px !important;
+    position: sticky;
     background-color: #232323;
 }
 
 .bottom {
     width: 100%;
     text-align: center;
-    position: absolute;
+    position: sticky;
     margin-bottom: 0px;
     bottom: 0px !important;
     color: white !important;
@@ -55,7 +61,7 @@ img {
 
 .panel-about {
     width: 80%;
-    position: absolute;
+    position: relative;
     left: 10%;
 }
 

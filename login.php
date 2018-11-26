@@ -1,4 +1,36 @@
+<?php 
+    session_start();
 
+    require_once "templates/db/db.php";
+
+    if(isset($_SESSION['email'])) {
+        header("Location:index.php");
+    }
+
+    $sql = "SELECT email, nom FROM `Usuarios` WHERE password = '" . $_REQUEST['password'] . "' AND email = '" . $_REQUEST['email'] . "'" ;
+
+    $result = mysqli_query($conn, $sql) or die("MySqlError: " . mysqli_error($conn));
+    
+    while($row = mysqli_fetch_array($result)) {
+        if($result->num_rows > 0) {
+            $_SESSION['email'] = $_REQUEST['email'];
+            $_SESSION['name'] = $row['nom'];
+            header("Location:index.php");
+        } else {
+            ?>
+
+        <div class="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Usuario o contraseña erroneos!</strong>
+        </div>
+
+            <?php
+        }
+    }
+
+    mysqli_free_result();
+    mysqli_close();
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -23,8 +55,8 @@
                 <legend>Log-In</legend>
             
                 <div class="form-group">
-                    <label for="">Usuario</label>
-                    <input type="text" class="form-control" name="user" id="user" placeholder="Input field">
+                    <label for="">Email</label>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Input field">
                 </div>
             
                 <div class="form-group">

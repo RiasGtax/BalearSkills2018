@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.php"><img src=""><b>Comunidad Islas Baleares</b></a>
+        <a class="navbar-brand" href="index.php"><b>Comunidad Islas Baleares</b></a>
     </div>
 
     <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -24,8 +24,19 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="about.php">Sobre nosotros</a></li>
+            <?php
+                if(!isset($_SESSION['email'])) {
+            ?>
             <li><a href="registrarse.php">Registrarse</a></li>
             <li><a href="login.php">Log-In</a></li>
+            <?php 
+                } else {
+            ?>
+            <li><a href="#">Buenos dias, <?php echo $_SESSION['name'] ?></a></li>
+            <li><a href="logout.php">Log-Out</a></li>
+            <?php 
+                }
+            ?>
         </ul>
     </div>
 </nav>
