@@ -1,8 +1,6 @@
 <?php 
     session_start();
 ?>
-
-
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -22,20 +20,19 @@
 
         <?php require_once "templates/navbar.php" ?>
 
-        <div class="panel panel-default">
-              <div class="panel-heading">
+        <div class="panel panel-default panel-about">
+            <div class="panel-heading">
                     <h3 class="panel-title">Complejo 1</h3>
-              </div>
-              <div class="panel-body">
+            </div>
+            <div class="panel-body">
                     <div class="img-panel">
-
+                        <img src="img/hoteles/4061.jpg">
                     </div>
                     <div class="text-panel">
-                        
+                        Lorem ipsum...
                     </div>
-              </div>
+            </div>
         </div>
-        
 
         <?php require_once "templates/footer.php" ?>
 
